@@ -2,7 +2,7 @@
 
 ## My Understanding of DevOps & Cloud
 
-**DevOps** is a combination of practices, tools, and cultural philosophies that improves collaboration between development and operations teams to automate and streamline the software development and delivery process.
+DevOps is a way of working where development and operations teams work together to build, test, deploy, and maintain applications faster and more reliably.
 
 **Cloud Engineering** involves designing, deploying, managing, and securing infrastructure and applications using cloud platforms such as AWS.
 
