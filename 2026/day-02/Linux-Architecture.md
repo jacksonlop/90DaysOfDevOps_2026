@@ -82,8 +82,7 @@ When you start a program, Linux creates a process and assigns it a unique PID (P
   
 **What systemd does and why it matters** - 
 
-  systemd is the init system and service manager used by most modern Linux distributions. first process to run.
-  When Linux starts, the kernel starts systemd as PID 1. systemd then starts and manages important system services.
+  systemd is usually the first user-space process started by the Linux kernel. It runs as PID 1. systemd then starts and       manages important system services.
 
   For example  - 
   Linux boots
