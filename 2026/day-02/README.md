@@ -1,4 +1,4 @@
-1. What is an OS?
+**What is an OS?**
   OS = Operating System
   An operating system is software that acts as an interface between applications and computer hardware.os manages the          computer's hardware and provides a platform for applications to run. 
   It manages:
@@ -10,7 +10,7 @@
   Running programs/processes
   Examples: Windows, Linux, macOS, Android.
 
-Linux is a free, open-source operating system (OS) that directly manages a system's hardware, resources, and applications. Originally created by Linus Torvalds in 1991 
+**Linux is a free, open-source operating system (OS) that directly manages a system's hardware, resources, and applications. Originally created by Linus Torvalds in 1991**
  	
 Linux is an open-source operating system that manages computer hardware and software.
 
@@ -38,27 +38,28 @@ Linux is an open-source operating system that manages computer hardware and soft
      ↓
   Linux is ready
   
-Linux Core Components & Processes
-  1. Kernel
+**Linux Core Components & Processes**
+  1. **Kernel**
   The kernel is the core of Linux. It manages hardware and system resources such as CPU, memory, disk, networking, and         devices.
   Kernel = Communicates between software and hardware.
   
-  3. User Space
+  3. **User Space**
   User space is where applications and commands run.
   Examples:
   Bash
   Python
   
-  4. Init / systemd
+  4. **Init / systemd**
   systemd is usually the first process (PID 1) started by the kernel.
   It starts and manages system services.
   systemd = Starts and manages services.
 
-A process is a running program.
+**A process is a running program.**
 
 When you start a program, Linux creates a process and assigns it a unique PID (Process ID).
 
 **Process states**
+
   Running	- Process is running/ready to run
   Sleeping	- Process is waiting
   Stopped	- Process is paused
@@ -95,7 +96,7 @@ When you start a program, Linux creates a process and assigns it a unique PID (P
      ↓
   Nginx / SSH / Docker / etc.
 
-What does systemd do?
+**What does systemd do?**
 
   Starts services when the system boots
   Stops services
@@ -110,11 +111,13 @@ What does systemd do?
 
 ****Architecture of linux**
 
+  User - The user gives commands or uses applications.
+  
   Application - 
   An application is the software the user uses to perform a task.
   Examples: Firefox, VS Code, Terminal
   
-  Shell  - Shell is an interface between the user and the operating system. It is a command interpreter that takes commands    from the user, interprets them, and starts programs or requests services from the kernel.
+  Shell  - Shell is an interface between the user and the kernel operating system. It is a command interpreter that takes      commands    from the user, interprets them, and starts programs or requests services from the kernel.
   
   Kernel - The core part of Linux. Manages hardware, memory, processes, security, and device drivers.
   Acts as a bridge between hardware and software.
@@ -136,4 +139,7 @@ What does systemd do?
     ┌────┼────┐
    VM 1 VM 2 VM 3
 
+five linux commands 
+
+ls , cd , pwd, mkdir, cat
 
