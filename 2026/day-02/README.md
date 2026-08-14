@@ -1,85 +1,139 @@
-# Day 02 – Linux Architecture, Processes, and systemd
+1. What is an OS?
+  OS = Operating System
+  An operating system is software that acts as an interface between applications and computer hardware.os manages the          computer's hardware and provides a platform for applications to run. 
+  It manages:
+  CPU / Processor
+  RAM / Memory
+  Storage
+  Network
+  Devices
+  Running programs/processes
+  Examples: Windows, Linux, macOS, Android.
 
-## Task
-Today’s goal is to **understand how Linux works under the hood**.
+Linux is a free, open-source operating system (OS) that directly manages a system's hardware, resources, and applications. Originally created by Linus Torvalds in 1991 
+ 	
+Linux is an open-source operating system that manages computer hardware and software.
 
-You will create a short note that explains:
-- The core components of Linux (kernel, user space, init/systemd)
-- How processes are created and managed
-- What systemd does and why it matters
+  Booting process 
+  
+  Power ON
+     ↓
+  Motherboard starts
+     ↓
+  BIOS / UEFI starts
+     ↓
+  Checks hardware
+     ↓
+  Finds boot device
+     ↓
+  Loads bootloader (GRUB)
+     ↓
+  GRUB loads Linux Kernel
+     ↓
+  Kernel starts
+     ↓
+  Kernel starts systemd (PID 1)
+     ↓
+  systemd starts services
+     ↓
+  Linux is ready
+  
+Linux Core Components & Processes
+  1. Kernel
+  The kernel is the core of Linux. It manages hardware and system resources such as CPU, memory, disk, networking, and         devices.
+  Kernel = Communicates between software and hardware.
+  
+  3. User Space
+  User space is where applications and commands run.
+  Examples:
+  Bash
+  Python
+  
+  4. Init / systemd
+  systemd is usually the first process (PID 1) started by the kernel.
+  It starts and manages system services.
+  systemd = Starts and manages services.
 
-This is the foundation for all troubleshooting you will do as a DevOps engineer.
+A process is a running program.
 
----
+When you start a program, Linux creates a process and assigns it a unique PID (Process ID).
 
-## Expected Output
-By the end of today, you should have:
+**Process states**
+  Running	- Process is running/ready to run
+  Sleeping	- Process is waiting
+  Stopped	- Process is paused
+  Zombie	- Process finished
+  Example:
+  python app.py
+  
+  **How it manages**
+  Program
+     ↓
+  Kernel creates a process
+     ↓
+  Assigns a PID
+     ↓
+  Schedules CPU time
+     ↓
+  Manages memory & resources
+     ↓
+  Process runs / stops / exits
+  
+**What systemd does and why it matters** - 
 
-- A markdown file named:  
-  `linux-architecture-notes.md`
+  systemd is the init system and service manager used by most modern Linux distributions. first process to run.
+  When Linux starts, the kernel starts systemd as PID 1. systemd then starts and manages important system services.
 
-or
+  For example  - 
+  Linux boots
+     ↓
+  Kernel
+     ↓
+  systemd (PID 1)
+     ↓
+  Starts services
+     ↓
+  Nginx / SSH / Docker / etc.
 
-- A hand written set of notes (Recommended)
+What does systemd do?
 
-Your notes should be clear enough that someone new to Linux can follow them.
+  Starts services when the system boots
+  Stops services
+  Restarts services
+  Checks service status
+  Manages services while the system is running
+  Example - 
+  systemctl status nginx
+  systemctl start nginx
+  systemctl stop nginx
+  systemctl restart nginx
 
----
+****Architecture of linux**
 
-## Guidelines
-Follow these rules while creating your notes:
+  Application - 
+  An application is the software the user uses to perform a task.
+  Examples: Firefox, VS Code, Terminal
+  
+  Shell  - Shell is an interface between the user and the operating system. It is a command interpreter that takes commands    from the user, interprets them, and starts programs or requests services from the kernel.
+  
+  Kernel - The core part of Linux. Manages hardware, memory, processes, security, and device drivers.
+  Acts as a bridge between hardware and software.
+  
+  Hardware - The physical components of the computer (CPU, RAM, Disk, Network Cards, etc.)
 
-- Explain **process states** (running, sleeping, zombie, etc.)
-- List **5 commands** you would use daily
-- Keep it **short and practical** (under 1 page)
-- Use bullet points and short headings
+**What is Virtualization?**
 
----
-
-## Resources
-You may refer to:
-
-- Linux `man` pages (`ps`, `top`, `systemctl`)
-- Official systemd docs
-- Your class notes
-
-Avoid copying/pasting AI Generated content.
-Focus on understanding.
-
----
-
-## Why This Matters for DevOps
-Linux is the base OS for almost every production system.
-
-If you know how processes and systemd work, you can:
-- Debug crashed services faster
-- Fix CPU/memory issues
-- Understand logs and service restarts confidently
-
-This knowledge saves hours during incidents.
-
----
-
-## Submission
-1. Fork this `90DaysOfDevOps` repository  
-2. Navigate to the `2026/day-02/` folder  
-3. Add your `linux-architecture-notes.md` file  
-4. Commit and push your changes to your fork  
-
----
-
-## Learn in Public
-Share your Day 02 progress on LinkedIn:
-
-- Post 2–3 lines on what you learned about Linux internals
-- Share one systemd command you found useful
-- Optional: screenshot of your notes
-
-Use hashtags:
-#90DaysOfDevOps
-#DevOpsKaJosh
-#TrainWithShubham
+  Virtualization allows one physical computer to run multiple virtual computers (VMs).
+  Virtual Machine (VM)
+  A VM is a virtual computer that runs its own operating system.
+  Hypervisor
+  A hypervisor is software that creates and manages Virtual Machines (VMs).
+  Architecture of how virtualization works
+  Physical Computer
+         ↓
+     Hypervisor
+         ↓
+    ┌────┼────┐
+   VM 1 VM 2 VM 3
 
 
-Happy Learning  
-**TrainWithShubham**
