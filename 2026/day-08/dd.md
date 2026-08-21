@@ -155,27 +155,6 @@ cat nginx-logs.txt
 scp -i devops-ai-powered-key.pem ubuntu@PUBLIC_IP:~/nginx-logs.txt .
 ```
 
-ssh -i "devops-ai-powered-key.pem" ubuntu@PUBLIC_IP
-
-sudo apt update
-sudo apt upgrade -y
-
-sudo apt install docker.io -y
-docker --version
-sudo systemctl status docker
-
-sudo apt install nginx -y
-sudo systemctl status nginx
-curl http://localhost
-
-journalctl -u nginx
-sudo tail -n 20 /var/log/nginx/access.log
-
-sudo cp /var/log/nginx/access.log ~/nginx-logs.txt
-sudo chown ubuntu:ubuntu nginx-logs.txt
-cat nginx-logs.txt
-
-scp -i devops-ai-powered-key.pem ubuntu@PUBLIC_IP:~/nginx-logs.txt .
 
 Local Machine
 ```
