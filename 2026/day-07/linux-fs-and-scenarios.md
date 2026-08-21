@@ -48,39 +48,39 @@ ls -la ~
 
 ## Scenario 1 – Service Not Starting
 
-*Problem: A service failed to start.*
+*Problem: Nginx failed to start.*
 
 ### Step 1 – Check status
 
 ```bash
-systemctl status myapp
+systemctl status nginx
 ```
 
-*Checks if the service is running, stopped, or failed.*
+*Checks if Nginx is running, stopped, or failed.*
 
 ### Step 2 – Check logs
 
 ```bash
-journalctl -u myapp -n 50
+journalctl -u nginx -n 50
 ```
 
-*Shows the last 50 log entries.*
+*Shows the last 50 Nginx log entries.*
 
 ### Step 3 – Check boot setting
 
 ```bash
-systemctl is-enabled myapp
+systemctl is-enabled nginx
 ```
 
-*Checks if the service starts automatically after reboot.*
+*Checks if Nginx starts automatically after reboot.*
 
 ### Step 4 – Restart service
 
 ```bash
-systemctl restart myapp
+systemctl restart nginx
 ```
 
-*Restarts the service after fixing the problem.*
+*Restarts Nginx after fixing the problem.*
 
 ### What I learned
 
@@ -88,7 +88,7 @@ systemctl restart myapp
 
 ---
 
-# Scenario 2 – High CPU Usage
+## Scenario 2 – High CPU Usage
 
 *Problem: The server is slow because a process may be using high CPU.*
 
@@ -99,6 +99,8 @@ top
 ```
 
 *Shows CPU usage and processes live.*
+
+*Press `q` to exit.*
 
 ### Step 2 – Find high CPU process
 
@@ -116,13 +118,21 @@ pgrep <process_name>
 
 *Finds the PID of a process.*
 
-### Step 4 – Stop process
+### Step 4 – Check process details
+
+```bash
+ps -p <PID> -f
+```
+
+*Shows details about the process.*
+
+### Step 5 – Stop process if required
 
 ```bash
 kill -15 <PID>
 ```
 
-*Gracefully stops the process if required.*
+*Gracefully stops the process.*
 
 ### If it does not stop
 
@@ -138,9 +148,9 @@ kill -9 <PID>
 
 ---
 
-# Scenario 3 – Finding Service Logs
+## Scenario 3 – Finding Service Logs
 
-*Problem: Find the logs of a systemd service.*
+*Problem: Find the logs of the Docker service.*
 
 ### Step 1 – Check service
 
@@ -164,7 +174,7 @@ journalctl -u docker -n 50
 journalctl -u docker -f
 ```
 
-*Shows new logs in real time.*
+*Shows new Docker logs in real time.*
 
 *Press `Ctrl+C` to stop.*
 
@@ -174,7 +184,7 @@ journalctl -u docker -f
 
 ---
 
-# Scenario 4 – File Permission Issue
+## Scenario 4 – File Permission Issue
 
 *Problem: A script gives `Permission denied`.*
 
@@ -223,7 +233,7 @@ ls -l backup.sh
 ### Important
 
 ```text
-x = execute permission
+x  = execute permission
 ./ = current directory
 ```
 
@@ -239,10 +249,10 @@ x = execute permission
 | ------------------------------------- | ------------------------------------- |
 | `ls -l`                               | Check file permissions                |
 | `ls -la`                              | List all files including hidden files |
-| `systemctl status`                    | Check service status                  |
-| `systemctl is-enabled`                | Check if service starts at boot       |
+| `systemctl status nginx`              | Check Nginx status                    |
+| `systemctl is-enabled nginx`          | Check if Nginx starts at boot         |
 | `systemctl list-units --type=service` | List loaded services                  |
-| `journalctl -u`                       | View service logs                     |
+| `journalctl -u nginx`                 | View Nginx logs                       |
 | `top`                                 | Monitor CPU/processes                 |
 | `ps aux --sort=-%cpu`                 | Find high CPU processes               |
 | `pgrep`                               | Find process PID                      |
@@ -253,13 +263,57 @@ x = execute permission
 
 ---
 
+# Troubleshooting Flow
+
+```text
+Service problem
+    ↓
+systemctl status
+    ↓
+journalctl
+    ↓
+Check enabled
+    ↓
+Fix and restart
+```
+
+```text
+High CPU
+    ↓
+top
+    ↓
+Find high CPU process
+    ↓
+Get PID
+    ↓
+Investigate
+    ↓
+kill -15
+    ↓
+kill -9 if necessary
+```
+
+```text
+Permission denied
+    ↓
+ls -l
+    ↓
+Check x permission
+    ↓
+chmod +x
+    ↓
+./script.sh
+```
+
+---
+
 # Summary
 
 * Learned the Linux File System Hierarchy.
 * Learned where configuration files, logs, commands, and user files are stored.
-* Practiced service troubleshooting.
+* Practiced Nginx service troubleshooting.
 * Practiced finding high CPU processes.
-* Practiced checking service logs.
+* Practiced finding Docker service logs.
 * Practiced fixing file permission problems.
 * Learned `pgrep`, `kill -15`, `chmod +x`, and `./script.sh`.
 
