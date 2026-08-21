@@ -155,8 +155,6 @@ cat nginx-logs.txt
 scp -i devops-ai-powered-key.pem ubuntu@PUBLIC_IP:~/nginx-logs.txt .
 ```
 
-## What I Learned
-
 ssh -i "devops-ai-powered-key.pem" ubuntu@PUBLIC_IP
 
 sudo apt update
@@ -179,28 +177,5 @@ cat nginx-logs.txt
 
 scp -i devops-ai-powered-key.pem ubuntu@PUBLIC_IP:~/nginx-logs.txt .
 
-## Day 08 Flow
-
-```text
-Local Machine
-     ↓
-SSH Port 22
-     ↓
-AWS EC2
-     ↓
-Security Group
-     ↓
-Nginx
-     ↓
-HTTP Port 80
-     ↓
-Web Browser
-     ↓
-Nginx Logs
-     ↓
-nginx-logs.txt
-     ↓
-SCP
-     ↓
 Local Machine
 ```
