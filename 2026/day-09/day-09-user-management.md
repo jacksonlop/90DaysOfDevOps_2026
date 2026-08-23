@@ -83,9 +83,7 @@ sudo gpasswd -a professor admins
 ### Verify memberships
 
 ```bash
-groups tokyo
-groups berlin
-groups professor
+cat /etc/group | tail -n 4
 ```
 
 **Result:**
