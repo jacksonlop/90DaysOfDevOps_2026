@@ -93,14 +93,13 @@
 - `640` = owner `rw`, group `r`, others none
 - `755` = owner `rwx`, group `rx`, others `rx`
 
-  | Number | Binary | Permission | Meaning                |
-| -----: | :----: | :--------: | ---------------------- |
-|  **0** |  `000` |    `---`   | No permission          |
-|  **1** |  `001` |    `--x`   | Execute                |
-|  **2** |  `010` |    `-w-`   | Write                  |
-|  **3** |  `011` |    `-wx`   | Write + Execute        |
-|  **4** |  `100` |    `r--`   | Read                   |
-|  **5** |  `101` |    `r-x`   | Read + Execute         |
-|  **6** |  `110` |    `rw-`   | Read + Write           |
-|  **7** |  `111` |    `rwx`   | Read + Write + Execute |
-
+  | Number | Binary | Permission | Meaning |
+|-------:|:------:|:----------:|---------|
+| **0** | `000` | `---` | No permission |
+| **1** | `001` | `--x` | Execute |
+| **2** | `010` | `-w-` | Write |
+| **3** | `011` | `-wx` | Write + Execute |
+| **4** | `100` | `r--` | Read |
+| **5** | `101` | `r-x` | Read + Execute |
+| **6** | `110` | `rw-` | Read + Write |
+| **7** | `111` | `rwx` | Read + Write + Execute |
