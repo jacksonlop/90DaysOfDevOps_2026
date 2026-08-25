@@ -47,7 +47,32 @@ Verify:
 
 <img width="670" height="55" alt="Pokemon-four" src="https://github.com/user-attachments/assets/a3497301-5a7d-4ff3-b1fd-4f476c3a5490" />
 
----
+### Basic `chgrp` Operations
+
+Create the file:
+
+`touch team-notes.txt`
+
+Check the current group:
+
+`ls -l team-notes.txt`
+
+<img width="484" height="43" alt="Pokemon-five" src="https://github.com/user-attachments/assets/60004b38-f5d4-4f4c-b7df-9fb1e3e4df20" />
+
+Create the group:
+
+`sudo groupadd heist-team`
+
+Change the group:
+
+`sudo chgrp heist-team team-notes.txt`
+
+Verify:
+
+`ls -l team-notes.txt`
+
+<img width="512" height="57" alt="Pokemon-six" src="https://github.com/user-attachments/assets/d242f259-bf77-41e2-a14e-fabaf9482893" />
+
 
 
 
