@@ -73,6 +73,42 @@ Verify:
 
 <img width="512" height="57" alt="Pokemon-six" src="https://github.com/user-attachments/assets/d242f259-bf77-41e2-a14e-fabaf9482893" />
 
+## 👥 Ownership Changes
+
+### Combined Owner & Group Change
+
+Create the file:
+
+`touch project-config.yaml`
+
+Create the user:
+
+`sudo useradd professor`
+
+Change owner and group together:
+
+`sudo chown professor:heist-team project-config.yaml`
+
+Verify:
+
+`ls -l project-config.yaml`
+
+<img width="625" height="76" alt="Pokemon-seven" src="https://github.com/user-attachments/assets/fcfcf8f1-5e83-47cd-b8ee-10d225996261" />
+
+Create directory:
+
+`mkdir app-logs`
+
+Change owner and group:
+
+`sudo chown berlin:heist-team app-logs`
+
+Verify:
+
+`ls -ld app-logs`
+
+<img width="518" height="60" alt="pokemon-eight" src="https://github.com/user-attachments/assets/9512fa68-9d93-470d-91b9-c0eb5f6bb6ee" />
+
 
 
 
