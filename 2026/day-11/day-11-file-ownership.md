@@ -1,0 +1,209 @@
+# 🚀 Day 11: File Ownership (chown & chgrp)
+
+## 👤 Understanding Ownership
+
+Run `ls -l` to view file ownership.
+
+`-rw-r--r-- 1 owner group size date filename`
+
+- **Owner** → User who owns the file.
+- **Group** → Group associated with the file.
+
+<img width="476" height="98" alt="Day11-git-one" src="https://github.com/user-attachments/assets/07eee54b-21eb-41ac-aa86-d2a852747144" />
+
+## 📁 Files & Directories Created
+
+### Basic `chown` Operations
+
+Create the file:
+
+`touch devops-file.txt`
+
+Check the current owner:
+
+`ls -l devops-file.txt`
+
+<img width="686" height="67" alt="Pokemon-two" src="https://github.com/user-attachments/assets/ed1eca37-4e77-4442-8638-4440b51fad70" />
+
+Change owner to `tokyo`:
+
+`sudo chown tokyo devops-file.txt`
+
+Verify:
+
+`ls -l devops-file.txt`
+
+<img width="663" height="85" alt="Pokemon-three" src="https://github.com/user-attachments/assets/9288e770-0466-42a0-a900-0b79e5cd3a97" />
+
+Change owner to `berlin`:
+
+`sudo useradd berlin`
+
+`sudo chown berlin devops-file.txt`
+
+Verify:
+
+`ls -l devops-file.txt`
+
+<img width="670" height="55" alt="Pokemon-four" src="https://github.com/user-attachments/assets/a3497301-5a7d-4ff3-b1fd-4f476c3a5490" />
+
+### Basic `chgrp` Operations
+
+Create the file:
+
+`touch team-notes.txt`
+
+Check the current group:
+
+`ls -l team-notes.txt`
+
+<img width="484" height="43" alt="Pokemon-five" src="https://github.com/user-attachments/assets/60004b38-f5d4-4f4c-b7df-9fb1e3e4df20" />
+
+Create the group:
+
+`sudo groupadd heist-team`
+
+Change the group:
+
+`sudo chgrp heist-team team-notes.txt`
+
+Verify:
+
+`ls -l team-notes.txt`
+
+<img width="512" height="57" alt="Pokemon-six" src="https://github.com/user-attachments/assets/d242f259-bf77-41e2-a14e-fabaf9482893" />
+
+## 👥 Ownership Changes
+
+### Combined Owner & Group Change
+
+Create the file:
+
+`touch project-config.yaml`
+
+Create the user:
+
+`sudo useradd professor`
+
+Change owner and group together:
+
+`sudo chown professor:heist-team project-config.yaml`
+
+Verify:
+
+`ls -l project-config.yaml`
+
+<img width="625" height="76" alt="Pokemon-seven" src="https://github.com/user-attachments/assets/fcfcf8f1-5e83-47cd-b8ee-10d225996261" />
+
+Create directory:
+
+`mkdir app-logs`
+
+Change owner and group:
+
+`sudo chown berlin:heist-team app-logs`
+
+Verify:
+
+`ls -ld app-logs`
+
+<img width="518" height="60" alt="pokemon-eight" src="https://github.com/user-attachments/assets/9512fa68-9d93-470d-91b9-c0eb5f6bb6ee" />
+
+### 📂 Recursive Ownership
+
+Create the directory structure:
+
+`mkdir -p heist-project/vault`
+
+`mkdir -p heist-project/plans`
+
+Create the files:
+
+`touch heist-project/vault/gold.txt`
+
+`touch heist-project/plans/strategy.conf`
+
+Create the group:
+
+`sudo groupadd planners`
+
+Change ownership recursively:
+
+`sudo chown -R professor:planners heist-project/`
+
+Verify:
+
+`ls -lR heist-project/`
+
+<img width="607" height="290" alt="pokemon-nine" src="https://github.com/user-attachments/assets/44b8966e-bc84-46b3-88b0-c81f2f245c1a" />
+
+### 🎯 Practice Challenge
+
+Create user:
+
+`sudo useradd nairobi`
+
+Create groups:
+
+`sudo groupadd vault-team`
+
+`sudo groupadd tech-team`
+
+Create directory:
+
+`mkdir bank-heist`
+
+Create 3 files:
+
+`touch bank-heist/access-codes.txt`
+
+`touch bank-heist/blueprints.pdf`
+
+`touch bank-heist/escape-plan.txt`
+
+Set different ownership:
+
+`sudo chown tokyo:vault-team bank-heist/access-codes.txt`
+
+`sudo chown berlin:tech-team bank-heist/blueprints.pdf`
+
+`sudo chown nairobi:vault-team bank-heist/escape-plan.txt`
+
+Verify:
+
+`ls -l bank-heist/`
+
+<img width="680" height="236" alt="Pokemon-ten" src="https://github.com/user-attachments/assets/03948d4d-1a94-4c3a-b9fd-2df217cf5516" />
+
+## 💻 Commands Used
+
+1. View ownership
+
+    `ls -l filename`
+
+2. Change owner
+
+    `sudo chown newowner filename`
+
+3. Change group
+
+    `sudo chgrp newgroup filename`
+
+4. Change owner and group
+
+    `sudo chown owner:group filename`
+
+5. Change ownership recursively
+
+    `sudo chown -R owner:group directory/`
+
+6. Change only group with `chown`
+
+    `sudo chown :groupname filename`
+
+   ## 💡 What I Learned
+
+- Linux files have an **owner** and a **group**.
+- Ownership helps control **who can access and modify files**.
+- Different files can have **different owners and groups**.
+- A directory can have ownership applied to **all files inside it**.
