@@ -109,6 +109,33 @@ Verify:
 
 <img width="518" height="60" alt="pokemon-eight" src="https://github.com/user-attachments/assets/9512fa68-9d93-470d-91b9-c0eb5f6bb6ee" />
 
+### 📂 Recursive Ownership
+
+Create the directory structure:
+
+`mkdir -p heist-project/vault`
+
+`mkdir -p heist-project/plans`
+
+Create the files:
+
+`touch heist-project/vault/gold.txt`
+
+`touch heist-project/plans/strategy.conf`
+
+Create the group:
+
+`sudo groupadd planners`
+
+Change ownership recursively:
+
+`sudo chown -R professor:planners heist-project/`
+
+Verify:
+
+`ls -lR heist-project/`
+
+<img width="607" height="290" alt="pokemon-nine" src="https://github.com/user-attachments/assets/44b8966e-bc84-46b3-88b0-c81f2f245c1a" />
 
 
 
