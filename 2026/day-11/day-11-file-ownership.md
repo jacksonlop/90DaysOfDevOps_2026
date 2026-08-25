@@ -137,5 +137,74 @@ Verify:
 
 <img width="607" height="290" alt="pokemon-nine" src="https://github.com/user-attachments/assets/44b8966e-bc84-46b3-88b0-c81f2f245c1a" />
 
+### 🎯 Practice Challenge
 
+Create user:
+
+`sudo useradd nairobi`
+
+Create groups:
+
+`sudo groupadd vault-team`
+
+`sudo groupadd tech-team`
+
+Create directory:
+
+`mkdir bank-heist`
+
+Create 3 files:
+
+`touch bank-heist/access-codes.txt`
+
+`touch bank-heist/blueprints.pdf`
+
+`touch bank-heist/escape-plan.txt`
+
+Set different ownership:
+
+`sudo chown tokyo:vault-team bank-heist/access-codes.txt`
+
+`sudo chown berlin:tech-team bank-heist/blueprints.pdf`
+
+`sudo chown nairobi:vault-team bank-heist/escape-plan.txt`
+
+Verify:
+
+`ls -l bank-heist/`
+
+<img width="680" height="236" alt="Pokemon-ten" src="https://github.com/user-attachments/assets/03948d4d-1a94-4c3a-b9fd-2df217cf5516" />
+
+## 💻 Commands Used
+
+1. View ownership
+
+    `ls -l filename`
+
+2. Change owner
+
+    `sudo chown newowner filename`
+
+3. Change group
+
+    `sudo chgrp newgroup filename`
+
+4. Change owner and group
+
+    `sudo chown owner:group filename`
+
+5. Change ownership recursively
+
+    `sudo chown -R owner:group directory/`
+
+6. Change only group with `chown`
+
+    `sudo chown :groupname filename`
+
+   ## 💡 What I Learned
+
+- Linux files have an **owner** and a **group**.
+- Ownership helps control **who can access and modify files**.
+- Different files can have **different owners and groups**.
+- A directory can have ownership applied to **all files inside it**.
 
