@@ -11,7 +11,8 @@
 
 ```bash
 sudo -i
-<img width="277" height="40" alt="Screenshot 2026-08-28 183100" src="https://github.com/user-attachments/assets/230b24b9-4aab-49a1-b948-28d6fd2a9fb3" />
+
+<img width="277" height="40" alt="Screenshot 2026-08-28 183100" src="https://github.com/user-attachments/assets/8652d5e8-a375-407a-aec9-e3c7e7fc8ac4" />
 
 
 ## 📌 Task 1 – Check Current Storage
