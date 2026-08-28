@@ -129,3 +129,42 @@ resize2fs /dev/devops-vg/app-data
 df -h /mnt/app-data
 ```
 - you can now verify the new filesystem size.
+
+## 🧠 What I Learned
+
+* Learned how to check disks and storage using `lsblk`, `pvs`, `vgs`, `lvs`, and `df -h`.
+* Learned how to use two AWS EBS disks as LVM storage.
+* Learned how to create Physical Volumes from the EBS disks using `pvcreate`.
+* Learned how to combine both disks into the `devops-vg` storage group using `vgcreate`.
+* Learned how to create a 500 MB `app-data` Logical Volume using `lvcreate`.
+* Learned how to format the Logical Volume with `ext4` using `mkfs.ext4`.
+* Learned how to create a mount point and mount the volume using `mount`.
+* Learned how to increase the Logical Volume by 2 GB using `lvextend`.
+* Learned how to expand the filesystem after increasing the volume using `resize2fs`.
+* Learned how to verify the final storage size using `df -h`.
+
+## 🛠️ Commands Used
+
+| Command | Purpose |
+|---|---|
+| `sudo -i` | Switch to root user |
+| `lsblk` | Check disks and partitions |
+| `pvs` | Check Physical Volumes |
+| `vgs` | Check Volume Groups |
+| `lvs` | Check Logical Volumes |
+| `df -h` | Check filesystem usage |
+| `pvcreate /dev/nvme1n1` | Create a Physical Volume |
+| `pvcreate /dev/nvme2n1` | Create a Physical Volume |
+| `vgcreate devops-vg /dev/nvme1n1 /dev/nvme2n1` | Create a Volume Group |
+| `lvcreate -L 500M -n app-data devops-vg` | Create a 500 MB Logical Volume |
+| `mkfs.ext4 /dev/devops-vg/app-data` | Create an ext4 filesystem |
+| `mkdir -p /mnt/app-data` | Create a mount directory |
+| `mount /dev/devops-vg/app-data /mnt/app-data` | Mount the Logical Volume |
+| `lvextend -L +2G /dev/devops-vg/app-data` | Increase the Logical Volume by 2 GB |
+| `resize2fs /dev/devops-vg/app-data` | Expand the filesystem |
+| `umount /mnt/app-data` | Unmount the volume |
+| `lvremove /dev/devops-vg/app-data` | Remove the Logical Volume |
+| `vgremove devops-vg` | Remove the Volume Group |
+| `pvremove /dev/nvme1n1` | Remove the Physical Volume |
+| `pvremove /dev/nvme2n1` | Remove the Physical Volume |
+| `pvs` / `vgs` / `lvs` | Verify LVM removal |
