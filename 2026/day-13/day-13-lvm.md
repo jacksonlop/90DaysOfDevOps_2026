@@ -56,3 +56,12 @@ pvs
 ```
 <img width="490" height="110" alt="Physical Volumes" src="https://github.com/user-attachments/assets/a16bc255-5308-499e-9dd0-3bbc1de8d1ee" />
 - Created Physical Volumes from the 10 GiB and 12 GiB EBS disks.
+
+## 📌 Task 3 – Create Volume Group
+
+```bash
+vgcreate devops-vg /dev/nvme1n1 /dev/nvme2n1
+vgs
+```
+<img width="536" height="107" alt="red-4" src="https://github.com/user-attachments/assets/e27ca9c8-91d9-42e2-a687-8de19c656603" />- Combined both Physical Volumes into one Volume Group na
+med `devops-vg`.
