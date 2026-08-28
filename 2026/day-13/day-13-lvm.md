@@ -13,6 +13,7 @@
 sudo -i
 ```
 <img width="277" height="40" alt="Switch to root" src="https://github.com/user-attachments/assets/230b24b9-4aab-49a1-b948-28d6fd2a9fb3" />
+
 - Switched to the root user for LVM operations.
 
 ---
@@ -23,6 +24,7 @@ sudo -i
 lsblk
 ```
 <img width="712" height="470" alt="lsblk output" src="https://github.com/user-attachments/assets/7774da66-e076-4320-b2c9-ee2f02e75080" />
+
 - Checked the available disks and partitions.
 
 ```bash
@@ -55,6 +57,7 @@ pvcreate /dev/nvme2n1
 pvs
 ```
 <img width="490" height="110" alt="Physical Volumes" src="https://github.com/user-attachments/assets/a16bc255-5308-499e-9dd0-3bbc1de8d1ee" />
+
 - Created Physical Volumes from the 10 GiB and 12 GiB EBS disks.
 
 ## 📌 Task 3 – Create Volume Group
@@ -63,7 +66,9 @@ pvs
 vgcreate devops-vg /dev/nvme1n1 /dev/nvme2n1
 vgs
 ```
-<img width="536" height="107" alt="red-4" src="https://github.com/user-attachments/assets/e27ca9c8-91d9-42e2-a687-8de19c656603" />- Combined both Physical Volumes into one Volume Group na
+<img width="536" height="107" alt="red-4" src="https://github.com/user-attachments/assets/e27ca9c8-91d9-42e2-a687-8de19c656603" />
+
+- Combined both Physical Volumes into one Volume Group na
 med `devops-vg`.
 
 ## 📌 Task 4 – Create Logical Volume
@@ -74,6 +79,7 @@ lvs
 
 ```
 <img width="749" height="105" alt="red-5" src="https://github.com/user-attachments/assets/c07806e0-53de-4d13-a58a-186c4e3e0031" />
+
 - Created a 500 MB Logical Volume named `app-data`.
 
 ## 📌 Task 5 – Format and Mount
@@ -82,6 +88,7 @@ lvs
 mkfs.ext4 /dev/devops-vg/app-data
 ```
 <img width="499" height="178" alt="red-6" src="https://github.com/user-attachments/assets/2e753b02-82f9-4943-b485-302692fca487" />
+
 - Formatted the Logical Volume with the ext4 filesystem.
 
 ```bash
@@ -101,3 +108,24 @@ df -h /mnt/app-data
 <img width="552" height="79" alt="red-7" src="https://github.com/user-attachments/assets/13db9ad2-5874-4cd1-ba23-13f9729ee1d6" />
 
 - Verified the mounted volume and its available space.
+
+## 📌 Task 6 – Extend the Volume
+
+```bash
+lvextend -L +2G /dev/devops-vg/app-data
+```
+<img width="846" height="125" alt="red-8" src="https://github.com/user-attachments/assets/d1f1be79-77db-4629-bc6a-a1dbe2348303" />
+
+- Increased the Logical Volume by 2 GB.
+
+```bash
+resize2fs /dev/devops-vg/app-data
+```
+<img width="737" height="137" alt="red-9" src="https://github.com/user-attachments/assets/d91a3a88-3453-4d73-8deb-9c3cf35608dc" />
+
+- Expanded the ext4 filesystem to use the new space.
+
+```bash
+df -h /mnt/app-data
+```
+- you can now verify the new filesystem size.
