@@ -12,14 +12,14 @@
 ```bash
 sudo -i
 
-<img width="277" height="40" alt="Screenshot 2026-08-28 183100" src="https://github.com/user-attachments/assets/8652d5e8-a375-407a-aec9-e3c7e7fc8ac4" />
-
-
 ## 📌 Task 1 – Check Current Storage
 
 ```bash
-lsblk
+
 ```
+<img width="490" height="110" alt="red-3" src="https://github.com/user-attachments/assets/a16bc255-5308-499e-9dd0-3bbc1de8d1ee" />
+
+lsblk
 - Checked the available disks and partitions.
 
 ```bash
