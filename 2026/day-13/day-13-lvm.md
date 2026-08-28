@@ -75,3 +75,29 @@ lvs
 ```
 <img width="749" height="105" alt="red-5" src="https://github.com/user-attachments/assets/c07806e0-53de-4d13-a58a-186c4e3e0031" />
 - Created a 500 MB Logical Volume named `app-data`.
+
+## 📌 Task 5 – Format and Mount
+
+```bash
+mkfs.ext4 /dev/devops-vg/app-data
+```
+<img width="499" height="178" alt="red-6" src="https://github.com/user-attachments/assets/2e753b02-82f9-4943-b485-302692fca487" />
+- Formatted the Logical Volume with the ext4 filesystem.
+
+```bash
+mkdir -p /mnt/app-data
+```
+- Created a directory to use as the mount point.
+
+```bash
+mount /dev/devops-vg/app-data /mnt/app-data
+```
+- Mounted the Logical Volume to `/mnt/app-data`.
+
+```bash
+df -h /mnt/app-data
+```
+
+<img width="552" height="79" alt="red-7" src="https://github.com/user-attachments/assets/13db9ad2-5874-4cd1-ba23-13f9729ee1d6" />
+
+- Verified the mounted volume and its available space.
