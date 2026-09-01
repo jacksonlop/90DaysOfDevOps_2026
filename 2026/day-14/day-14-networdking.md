@@ -148,6 +148,42 @@ It quickly checks reachability, latency, and packet loss.
 
 `ss -tulpn`
 
+## 🔧 Commands Used on Day 14
 
+| Command | Purpose |
+|---|---|
+| `hostname -I` | Find private IP |
+| `curl -4 ifconfig.me` | Find public IP |
+| `ping -c 4 google.com` | Check network reachability |
+| `tracepath 1.1.1.1` | Check network path |
+| `ss -tulpn` | Check listening ports |
+| `dig google.com` | Check DNS resolution |
+| `curl -I http://localhost` | Check Nginx HTTP response |
+| `netstat -an \| head` | View network connections |
+| `nc -zv localhost 80` | Test port 80 |
+| `systemctl status nginx` | Check Nginx status |
+| `sudo nginx -t` | Check Nginx configuration |
+| `sudo tail -n 50 /var/log/nginx/error.log` | Check Nginx error logs |
+
+---
+
+## 🔗 TCP Three-Way Handshake
+
+**TCP** works at the **Transport Layer (Layer 4)**.
+
+Before TCP communication starts, the client and server establish a connection.
+
+1. **SYN** → Client requests a connection.
+2. **SYN-ACK** → Server accepts the request.
+3. **ACK** → Client confirms the connection.
+
+```text
+Client                         Server
+
+   | -------- SYN ------------> |
+   | <------ SYN-ACK ---------- |
+   | -------- ACK ------------> |
+   |                            |
+   |    Connection established  |
 
 
