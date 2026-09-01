@@ -110,6 +110,44 @@ Command: `nc -zv localhost 80`
 
 <img width="517" height="31" alt="rat8" src="https://github.com/user-attachments/assets/845cf207-c9ac-4460-a1cb-de2187fd7123" />
 
+## 📝 Reflection
+
+### Which command gives the fastest signal when something is broken?
+
+**`ping -c 4 google.com`**
+
+It quickly checks reachability, latency, and packet loss.
+
+---
+
+### What layer would you inspect next?
+
+**If DNS fails:**
+
+- OSI → Layer 7 (Application)
+- TCP/IP → Application Layer
+- Command → `dig google.com`
+
+**If HTTP 500 appears:**
+
+- OSI → Layer 7 (Application)
+- TCP/IP → Application Layer
+- Check Nginx status → `systemctl status nginx`
+- Check configuration → `sudo nginx -t`
+- Check error logs → `sudo tail -n 50 /var/log/nginx/error.log`
+
+---
+
+### Two follow-up checks in a real incident
+
+**1. Check service status**
+
+`systemctl status nginx`
+
+**2. Check listening ports**
+
+`ss -tulpn`
+
 
 
 
