@@ -95,7 +95,7 @@ Command: `netstat -an | head`
 
 **Observation:** Shows a quick snapshot of listening and active network connections.
 
-<img width="495" height="32" alt="rat-7" src="https://github.com/user-attachments/assets/473bbaf2-29c9-482c-9c48-828722be5922" />
+<img width="629" height="166" alt="rat-10" src="https://github.com/user-attachments/assets/5d6b9d19-ba8d-448b-8e7a-9792a54a045a" />
 
 ## 8. Port Probe
 
