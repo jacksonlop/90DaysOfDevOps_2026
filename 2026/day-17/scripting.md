@@ -50,20 +50,14 @@ I created count.sh to print numbers from 1 to 10 using a for loop.
 
 #!/bin/bash
 
-for i in {1..10}
+for i in {1..10..3}
 do
     echo "$i"
 done
 Output
 1
-2
-3
 4
-5
-6
 7
-8
-9
 10
 
 Then save it:
@@ -72,7 +66,8 @@ Then save it:
 Esc
 :wq
 Enter
-📸 Screenshot
+
+<img width="557" height="350" alt="bat-1" src="https://github.com/user-attachments/assets/4b1146d5-3a3e-40f8-881b-298b36a05ec2" />
 
 ## 📝 Task 2 – While Loop
 
@@ -103,7 +98,7 @@ Enter a number: 5
 0
 Done!
 
-📸 Screenshot
+<img width="466" height="315" alt="bat-2" src="https://github.com/user-attachments/assets/490d8800-d9c2-49ba-baa0-12d3786dfba3" />
 
 ## 📝 Task 3 – Command-Line Arguments
 
@@ -148,8 +143,7 @@ Script name: ./args_demo.sh
 Total arguments: 3
 All arguments: one two three
 
-📸 Screenshots
-
+<img width="465" height="184" alt="bat-3" src="https://github.com/user-attachments/assets/95468d9b-adc6-47ed-95e0-f30582214b60" />
 
 ## 📝 Task 4 – Install Packages via Script
 
@@ -205,7 +199,7 @@ dpkg -s → checks the package status.
 - If the package is installed, the script skips it.
 - If the package is missing, the script installs it using `apt`.
 
-📸 Screenshot
+<img width="476" height="268" alt="bat-4" src="https://github.com/user-attachments/assets/cee63086-7249-4245-8c2c-99f1dae7ceb1" />
 
 Task 5: Error Handling
 
@@ -249,7 +243,7 @@ mkdir: cannot create directory '/tmp/devops-test': File exists
 File already exists
 Script completed successfully
 
-📸 screenshot
+<img width="512" height="221" alt="bat-5" src="https://github.com/user-attachments/assets/ca6ee119-4f8e-41fa-9eb3-6a872b52a2ee" />
 
 Task 5, Step 2: Root check in demo-root.sh
 
@@ -285,7 +279,7 @@ When run as root:
 # ./demo-root.sh
 Running as root
 
-📸 Take the screenshot
+<img width="751" height="192" alt="bat-6" src="https://github.com/user-attachments/assets/3d75ef33-bcf3-48d0-b552-4522ce66ef7a" />
 
 ## 🧠 What I Learned
 
