@@ -9,6 +9,62 @@
 
 ---
 
+# Bash Syntax Quick Reference
+
+| Syntax   | Meaning                                  | Example                  |
+| -------- | ---------------------------------------- | ------------------------ |
+| `$( )`   | Runs a command and gets its output       | `today=$(date)`          |
+| `$(( ))` | Performs math                            | `sum=$((5 + 3))`         |
+| `[ ]`    | Basic condition checking                 | `[ "$EUID" -eq 0 ]`      |
+| `[[ ]]`  | Advanced Bash condition checking         | `[[ $name == Jackson ]]` |
+| `{1..5}` | Creates a number range                   | `for i in {1..5}`        |
+| `$VAR`   | Gets the value stored in a variable      | `echo $name`             |
+| `${VAR}` | Clearly marks where a variable name ends | `echo ${name}_backup`    |
+
+## `[[ ]]` Common Uses
+
+Variables can be used inside `[[ ]]` to check conditions.
+
+```bash
+[[ $name == Jackson ]]    # equal
+[[ $name != Jackson ]]    # not equal
+[[ $age -eq 23 ]]         # number is equal
+[[ $age -gt 18 ]]         # greater than
+[[ $age -lt 18 ]]         # less than
+[[ -z $name ]]             # empty
+[[ -n $name ]]             # not empty
+[[ $a && $b ]]             # AND
+[[ $a || $b ]]             # OR
+```
+
+### Quick Memory
+
+* `$( )` → command output
+* `$(( ))` → math
+* `[ ]` → basic condition
+* `[[ ]]` → advanced condition
+* `{1..5}` → range
+* `$VAR` → variable value
+* `${VAR}` → variable boundary
+
+## Why `${VAR}`?
+
+Use `${VAR}` when text comes directly after a variable name.
+
+```bash
+name="Jackson"
+echo "${name}_backup"
+```
+
+Output:
+
+```text
+Jackson_backup
+```
+
+`${name}` tells Bash that **`name` is the variable** and `_backup` is normal text.
+
+
 ## Task 1 – For Loop
 
 **for loop** → repeats a set of commands once for each item in a list or range.
